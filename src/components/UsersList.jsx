@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getUsers, updateUser, deleteUser } from '../api';
 
 function UsersList({ onClose, setAlert, isAdmin = true }) {
+    const API = import.meta.env.VITE_APP_API;
     const [users, setUsers] = useState([]);
     const [editIndex, setEditIndex] = useState(null);
     const [editData, setEditData] = useState({});
@@ -186,7 +187,7 @@ function UsersList({ onClose, setAlert, isAdmin = true }) {
                                         )}
                                     </>
                                 ) : (
-                                    <img src={`http://localhost:5000/${u.image}`} alt="profile" style={{ width: 32, height: 32, borderRadius: '50%' }} />
+                                    <img src={`${API}/${u.image}`} alt="profile" style={{ width: 32, height: 32, borderRadius: '50%' }} />
                                 )}
                             </td>
 
